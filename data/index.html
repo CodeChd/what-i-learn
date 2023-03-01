@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What I Learn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="container">
+    <header class="header">
+      <div class="logo">
+      <img src="logo.png"  lt="logo" />
+      <h1>What I Learn</h1>
+    </div>
+      <button class="btn btn-large open">Share a fact</button>
+    </header>
+
+    <form class="fact-form hidden">
+      <input type="text" placeholder="Share a fact with the world..." />
+      <span>200</span>
+      <input type="text" placeholder="Trustworthy source..." />
+      <select name="" id="">
+        <option value="">Choose Category:</option>
+        <option value="Technology">Technology</option>
+        <option value="Science">Science</option>
+        <option value="Finance">Finance</option>
+      </select>
+      <button class="btn btn-large">Post</button>
+    </form>
+
+    <main>
+      <aside>
+        <ul>
+          <li class="category"><button class="btn btn-all-categories ">All</button></li>
+          <li class="category"><button class="btn btn-category" style="background-color: #3b82f6;">Technology</button></li>
+          <li class="category"><button class="btn btn-category" style="background-color: #16a34a;">Science</button></li>
+        </ul>
+      </aside>
+
+      <section>
+        <ul class="facts-list">
+          <li class="fact"  >
+            <p >
+              React is being developed by Meta (formerly facebook🤯)
+              <a href="#" target="_blank" class="source">(Source)</a>
+            </p>
+            <span class="tag" style="background-color: #3b82f6;">technology</span>
+            <div class="vote-buttons">
+              <button>👍 23</button>
+              <button>🤯 43</button>
+              <button>⛔️ 1</button>
+            </div>
+          </li>
+          <li class="fact">
+            <p >
+              Millennial dads spend 3 times as much time with their kids than
+              their fathers spent with them. In 1982, 43% of fathers had never
+              changed a diaper. Today, that number is down to 3%
+              <a href="#" target="_blank" class="source">(Source)</a>
+            </p>
+            <span class="tag" style="background-color: #eab308;">Society</span>
+            <div class="vote-buttons">
+              <button>👍 12</button>
+              <button>🤯 46</button>
+              <button>⛔️ 66</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="main.js" ></script>
+  </body>
+</html>
