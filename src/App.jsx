@@ -3,10 +3,13 @@ import Header from '../components/Header'
 import Content from '../components/Content'
 import FactLists from '../components/FactLists'
 import CategoryFilter from '../components/CategoryFilter'
-import { useState, useEffect } from "react"
 import Form from '../components/Form'
 import { Toaster } from 'react-hot-toast'
-import { initialFacts } from '../helper/data'
+import { useState, useEffect } from "react"
+import supabase from '../helper/supabase'
+import { PropagateLoader } from 'react-spinners'
+
+
 
 
 const CATEGORIES = [
@@ -24,31 +27,62 @@ const CATEGORIES = [
 
 function App() {
   const [showform, setShowForm] = useState(false)
+  const [facts, setFacts] = useState([])
+  const [loading, setIsLoading] = useState(false)
+  const [currentCategory, setCurrentCategory] = useState("all")
+  
+  
+  useEffect(() => {
 
-  const [facts, setFacts] = useState(initialFacts)
+    async function load() {
+
+      setIsLoading(true)
+
+      let q = supabase.from('facts').select('*')
+
+      if (currentCategory !== "all") {
+        q.eq("category", currentCategory)
+      }
+
+      const { data, error } = await q
+        .order("text", { ascending: true })
+
+        const fact = Object.values(data)
+         if (!error) setFacts(fact);
+        setIsLoading(false)
+      
+    }
+    load()
 
 
-
-
+  }, [currentCategory])
 
   return (
     <div className="App">
-      <Toaster/>
+      <Toaster />
       <Header showform={showform} setShowForm={setShowForm} />
 
-      {showform ? <Form setShowForm={setShowForm}  setFacts={setFacts} Categories={CATEGORIES} /> : null }
+      {showform ? <Form setShowForm={setShowForm} setFacts={setFacts} Categories={CATEGORIES} /> : null}
 
       <Content>
+        <CategoryFilter setCurrentCategory={setCurrentCategory} Categories={CATEGORIES} />
 
-        <CategoryFilter Categories={CATEGORIES} />
-        <FactLists facts={facts} Categories={CATEGORIES} />
+        {loading ?
+
+          <PropagateLoader
+            className='spinner'
+            color='#f5f5f4'
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+
+          />
+          :
+          <FactLists facts={facts} Categories={CATEGORIES} />
+        }
 
       </Content>
-
-
     </div>
-
-
   )
 }
 

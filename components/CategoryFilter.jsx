@@ -1,13 +1,14 @@
 
 
-export default function CategoryFilter({Categories}) {
+export default function CategoryFilter({setCurrentCategory,Categories}) {
   return (
     <aside>
         <ul>
-        <li className="category"><button className="btn btn-all-categories ">All</button></li>
+        <li className="category"><button className="btn btn-all-categories " onClick={() => setCurrentCategory("all")}>All</button></li>
 
           {Categories.map((e) => (
-              <li key={e.name} className="category"><button className="btn btn-category" style={{backgroundColor: e.color}}>{e.name}</button></li>
+              <li key={e.name} className="category">
+                <button className="btn btn-category" value={e.name} style={{backgroundColor: e.color}} onClick={() => setCurrentCategory(e.name)}>{e.name}</button></li>
           ))}
        
         </ul>

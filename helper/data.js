@@ -1,32 +1,3 @@
-// import { useEffect,useState } from "react"
-
-// export default function data() {
-
-//     const [data, setData] = useState([])
-//     useEffect(() => {
-    
-//         async function loadfunction() {
-    
-//             const data = await fetch("https://ebpnruaiihixslzzvksu.supabase.co/rest/v1/facts", {
-//                 headers: {
-//                     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVicG5ydWFpaWhpeHNsenp2a3N1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc0OTk4OTQsImV4cCI6MTk5MzA3NTg5NH0.O3LxLPNemQaJRJyakIIL8UggFZBgY9YhrlLCDIoP0R8",
-//                     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVicG5ydWFpaWhpeHNsenp2a3N1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc0OTk4OTQsImV4cCI6MTk5MzA3NTg5NH0.O3LxLPNemQaJRJyakIIL8UggFZBgY9YhrlLCDIoP0R8"
-//                 }
-//             })
-//             const res = await data.json()
-//             setData(res)
-    
-//         }
-//         loadfunction() 
-//     }, [])
-//   return (
-//     <>
-
-        
-//     </>
-//   )
-// }
-
 export const initialFacts = [
     {
       id: 1,
