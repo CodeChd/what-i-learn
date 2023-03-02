@@ -39,6 +39,7 @@ export default function Form({ setFacts, setShowForm, Categories }) {
             // }
            
             setIsUploading(true)
+            // add
             const { data: newFact, error } = await supabase
             .from("facts")
             .insert({ text, source, category })

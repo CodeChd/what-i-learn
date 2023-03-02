@@ -33,7 +33,7 @@ function App() {
   
   
   useEffect(() => {
-
+// Fetch
     async function load() {
 
       setIsLoading(true)
@@ -41,17 +41,16 @@ function App() {
       let q = supabase.from('facts').select('*')
 
       if (currentCategory !== "all") {
-        q.eq("category", currentCategory)
+    q.eq("category", currentCategory)
       }
 
       const { data, error } = await q
         .order("text", { ascending: true })
 
-        const fact = Object.values(data)
-         if (!error) setFacts(fact);
+         if (!error) setFacts(data);
         setIsLoading(false)
-      
     }
+
     load()
 
 
@@ -77,8 +76,10 @@ function App() {
             data-testid="loader"
 
           />
+
           :
-          <FactLists facts={facts} Categories={CATEGORIES} />
+
+          <FactLists facts={facts} setFacts={setFacts} Categories={CATEGORIES} />
         }
 
       </Content>
