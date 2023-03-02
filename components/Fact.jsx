@@ -4,6 +4,7 @@ import supabase from "../helper/supabase"
 
 export default function Fact({ facts, setFacts, Categories }) {
     const [isUpdating, setUpdating] = useState(false)
+    const isDisputed = facts.votesMIndBlown + facts.votesinterest + 6 < facts.votesDislike; 
 
     // Update
     async function handleVotes(columnName) {
@@ -24,7 +25,12 @@ export default function Fact({ facts, setFacts, Categories }) {
 
     return (
         <li key={facts.id} className="fact"  >
+
+
             <p >
+
+                    {isDisputed ? <span className="disputed">[⛔️ DIISPUTED]</span>: ""}
+
                 {facts.text}
                 <a href={facts.source} target="_blank" className="source">(Source)</a>
             </p>
