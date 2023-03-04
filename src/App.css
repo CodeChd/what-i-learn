@@ -161,6 +161,9 @@ h1{
 
 }
 
+.message{
+  font-size: 1.3rem;
+}
 
 
 @media(max-width: 1200px){

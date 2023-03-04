@@ -5,8 +5,8 @@ export default function FactLists({ facts, Categories,  setFacts}) {
 
     if (facts.length === 0)
         return (
-            <p className='message'>
-                No facts for this category yet! Create the first one ✌️
+            <p className='message spinner'>
+             There are no facts in the databases for this category! Add your own :)
             </p>
         );
 
